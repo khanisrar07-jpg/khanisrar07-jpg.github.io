@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Israr Khan — Plant Biotechnology Researcher, University of Swat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EE;
+    --cream-deep:#F1EADC;
+    --ink:#2B2A25;
+    --ink-soft:#645F55;
+    --blossom:#D98CA6;
+    --blossom-deep:#B85C7E;
+    --blossom-pale:#F3D9E2;
+    --sage:#8FAE83;
+    --forest:#47603A;
+    --sage-pale:#E3EBDD;
+    --gold:#C9A15A;
+    --line: rgba(43,42,37,0.14);
+    --shadow: 0 20px 50px -25px rgba(43,42,37,0.35);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--blossom-pale);color:var(--ink);}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--forest);
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(250,246,238,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:68px;
+  }
+  .brand{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.15rem;
+  }
+  .brand span{color:var(--blossom-deep);}
+  .navlinks{display:flex;gap:28px;}
+  .navlinks a{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    transition:color .25s ease;
+    position:relative;
+  }
+  .navlinks a:hover{color:var(--forest);}
+  .navlinks a:focus-visible, a:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:2px;}
+  @media (max-width:720px){.navlinks{display:none;}}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;
+    padding:170px 0 120px;
+    overflow:hidden;
+  }
+  .hero-watermark{
+    position:absolute;
+    top:-40px; right:-120px;
+    width:640px; height:640px;
+    opacity:0.5;
+    pointer-events:none;
+  }
+  .hero .eyebrow{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.04;
+    max-width:12ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--blossom-deep);
+    font-weight:500;
+  }
+  .hero-sub{
+    margin-top:26px;
+    max-width:560px;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+  }
+  .hero-meta{
+    margin-top:38px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    padding:9px 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,0.5);
+    color:var(--ink-soft);
+  }
+  .pill.pink{border-color:var(--blossom);color:var(--blossom-deep);}
+  .pill.green{border-color:var(--sage);color:var(--forest);}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:52px;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);}
+  .section-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    opacity:0.7;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .monogram{
+    width:190px;height:190px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    font-size:3.2rem;
+    font-weight:500;
+    color:var(--cream);
+    background:conic-gradient(from 200deg, var(--blossom-deep), var(--gold), var(--sage), var(--forest), var(--blossom-deep));
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+  .monogram::after{
+    content:'';
+    position:absolute;inset:8px;
+    border-radius:50%;
+    background:var(--cream-deep);
+  }
+  .monogram span{position:relative;z-index:2;color:var(--ink);}
+  .about-body p{color:var(--ink-soft);margin-bottom:16px;max-width:64ch;}
+  .about-body strong{color:var(--ink);font-weight:600;}
+  @media (max-width:720px){
+    .about{grid-template-columns:1fr;}
+    .monogram{width:140px;height:140px;font-size:2.3rem;}
+  }
+
+  /* ---------- RESEARCH SPECIMENS ---------- */
+  .specimens{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  @media (max-width:900px){.specimens{grid-template-columns:1fr;}}
+
+  .specimen{
+    background:linear-gradient(180deg,#fff, var(--cream-deep));
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:28px 26px 30px;
+    position:relative;
+    box-shadow:0 10px 30px -18px rgba(43,42,37,0.25);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .specimen:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .specimen::before{
+    content:'';
+    position:absolute;
+    top:14px;left:50%;transform:translateX(-50%) rotate(-4deg);
+    width:52px;height:16px;
+    background:rgba(217,140,166,0.35);
+    border:1px solid rgba(184,92,126,0.4);
+  }
+  .specimen.tag-green::before{
+    background:rgba(143,174,131,0.35);
+    border-color:rgba(71,96,58,0.4);
+    transform:translateX(-50%) rotate(3deg);
+  }
+  .specimen-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:18px;
+    margin-bottom:10px;
+  }
+  .specimen h3{
+    font-size:1.3rem;
+    margin-bottom:12px;
+    line-height:1.25;
+  }
+  .specimen p{
+    color:var(--ink-soft);
+    font-size:0.93rem;
+    margin-bottom:16px;
+  }
+  .specimen-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.66rem;
+    padding:4px 10px;
+    border-radius:4px;
+    background:var(--sage-pale);
+    color:var(--forest);
+  }
+  .specimen.tag-pink .tag{background:var(--blossom-pale);color:var(--blossom-deep);}
+  .specimen-field{
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:12px;
+    margin-top:14px;
+  }
+
+  /* ---------- SIGNATURE DIVIDER: peaks = chromatogram + skyline ---------- */
+  .divider{
+    position:relative;
+    padding:70px 0 40px;
+  }
+  .divider .wrap{position:relative;}
+  .divider svg{width:100%;height:auto;display:block;}
+  .divider-caption{
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem;
+    color:var(--ink-soft);
+    letter-spacing:0.08em;
+    margin-top:10px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- TECHNIQUES ---------- */
+  .tech-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  @media (max-width:900px){.tech-groups{grid-template-columns:1fr;}}
+  .tech-group h4{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--forest);
+    margin-bottom:16px;
+  }
+  .tech-list{display:flex;flex-wrap:wrap;gap:9px;}
+  .tech-pill{
+    font-size:0.82rem;
+    padding:7px 14px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+  }
+
+  /* ---------- TRAVEL ---------- */
+  .travel{
+    background:var(--forest);
+    color:var(--cream);
+    border-radius:18px;
+    padding:64px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .travel .eyebrow{color:var(--sage-pale);opacity:0.85;}
+  .travel h2{color:var(--cream);}
+  .travel p{color:rgba(250,246,238,0.82);max-width:62ch;margin-top:18px;font-size:1rem;}
+  .travel-scene{margin-top:40px;width:100%;height:auto;}
+  .spots{
+    display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;
+  }
+  .spot{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid rgba(250,246,238,0.35);
+    color:var(--cream);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+  }
+  @media (max-width:800px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-grid p{color:var(--ink-soft);max-width:52ch;margin-bottom:28px;}
+  .contact-links{display:flex;flex-direction:column;gap:14px;}
+  .clink{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 20px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .clink:hover{border-color:var(--blossom-deep);transform:translateX(4px);}
+  .clink .l1{font-weight:600;font-size:0.92rem;}
+  .clink .l2{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .note{
+    margin-top:22px;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 0;
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  }
+  footer .fname{font-family:'Fraunces',serif;font-size:1rem;}
+  footer .fmeta{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Israr <span>Khan</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#techniques">Techniques</a>
+      <a href="#travel">Swat</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="hero-watermark" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M200 40 C160 90 120 140 120 200 C120 260 160 320 200 360 C240 320 280 260 280 200 C280 140 240 90 200 40 Z"
+      stroke="#D98CA6" stroke-width="1.4" opacity="0.55"/>
+    <path d="M200 60 C200 140 200 260 200 350" stroke="#8FAE83" stroke-width="1.2" opacity="0.5"/>
+    <path d="M200 110 C170 130 150 150 140 175" stroke="#8FAE83" stroke-width="1.1" opacity="0.45"/>
+    <path d="M200 150 C230 170 250 190 262 215" stroke="#8FAE83" stroke-width="1.1" opacity="0.45"/>
+    <path d="M200 200 C165 218 145 238 132 262" stroke="#8FAE83" stroke-width="1.1" opacity="0.45"/>
+    <path d="M200 240 C235 258 255 278 268 302" stroke="#8FAE83" stroke-width="1.1" opacity="0.45"/>
+    <circle cx="200" cy="200" r="150" stroke="#C9A15A" stroke-width="0.6" opacity="0.4"/>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">MPhil Biotechnology · DBGFM, University of Swat · KP, Pakistan</div>
+    <h1>Israr Khan<br><em>Plant &amp; Molecular</em> Biotechnologist</h1>
+    <p class="hero-sub">I work where cell culture, enzyme engineering and phytochemistry meet — regenerating <em>Brassica napus</em> in vitro, engineering thermostable enzymes for biofuel, and reading the chemical signatures plants produce under stress. Based in the Swat Valley, and rarely far from its mountains on the weekend.</p>
+    <div class="hero-meta">
+      <span class="pill pink">Tissue Culture</span>
+      <span class="pill green">Gene Cloning &amp; Expression</span>
+      <span class="pill pink">Phytochemical Profiling</span>
+      <span class="pill green">Nanoparticle Elicitation</span>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="section-num">DBGFM · Univ. of Swat</span>
+    </div>
+    <div class="about">
+      <div class="monogram"><span>IK</span></div>
+      <div class="about-body">
+        <p>I am an MPhil scholar in Biotechnology at the <strong>Department of Biotechnology &amp; Genetic Engineering, Fazaia Medical (DBGFM), University of Swat</strong>, working at the intersection of plant tissue culture, recombinant protein expression, and analytical phytochemistry.</p>
+        <p>My research spans three directions: regenerating oilseed rape (<strong><em>Brassica napus</em></strong>) through in vitro tissue culture, cloning and expressing a <strong>thermophilic β-glucosidase</strong> for lignocellulosic biofuel production, and profiling <strong>phenolics, flavonoids, antioxidant activity (DPPH), and artemisinin</strong> in <em>Artemisia</em> callus lines enhanced with silver nanoparticles (AgNPs).</p>
+        <p>Outside the lab, I explore the valleys, meadows and passes of Swat — from Kalam to Mahodand — with the same curiosity I bring to a petri dish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Research</h2>
+      <span class="section-num">03 active lines</span>
+    </div>
+    <div class="specimens">
+
+      <div class="specimen tag-pink">
+        <div class="specimen-label">Specimen · Regeneration</div>
+        <h3><em>Brassica napus</em><br>Tissue Culture</h3>
+        <p>Establishing efficient in vitro regeneration protocols — callus induction, shoot organogenesis and rooting — to support rapid propagation and downstream genetic improvement of oilseed rape.</p>
+        <div class="specimen-tags">
+          <span class="tag">Callus Induction</span>
+          <span class="tag">Organogenesis</span>
+          <span class="tag">MS Media</span>
+        </div>
+        <div class="specimen-field"><span>Method</span><span>In vitro culture</span></div>
+      </div>
+
+      <div class="specimen tag-green">
+        <div class="specimen-label">Specimen · Enzyme Engineering</div>
+        <h3>Thermophilic β-Glucosidase A<br>Cloning &amp; Expression</h3>
+        <p>Cloning and heterologous expression of a thermostable β-glucosidase to improve enzymatic saccharification of plant biomass — a step toward more efficient, low-cost biofuel production.</p>
+        <div class="specimen-tags">
+          <span class="tag">Gene Cloning</span>
+          <span class="tag">Heterologous Expression</span>
+          <span class="tag">Biofuel</span>
+        </div>
+        <div class="specimen-field"><span>Method</span><span>Recombinant DNA</span></div>
+      </div>
+
+      <div class="specimen tag-pink">
+        <div class="specimen-label">Specimen · Phytochemistry</div>
+        <h3>Metabolite Profiling in<br><em>Artemisia</em> spp.</h3>
+        <p>Quantifying total phenolics, flavonoids, DPPH antioxidant activity and artemisinin content (HPLC) in <em>Artemisia</em> callus, with AgNP elicitation used to enhance secondary metabolite yield.</p>
+        <div class="specimen-tags">
+          <span class="tag">DPPH Assay</span>
+          <span class="tag">HPLC</span>
+          <span class="tag">AgNP Elicitation</span>
+        </div>
+        <div class="specimen-field"><span>Method</span><span>Analytical Chemistry</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="wrap">
+    <svg viewBox="0 0 1000 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skyline of Swat rendered as a chromatogram trace">
+      <defs>
+        <linearGradient id="peakGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#B85C7E"/>
+          <stop offset="50%" stop-color="#C9A15A"/>
+          <stop offset="100%" stop-color="#47603A"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,160 L60,160 L100,60 L130,160 L220,160 L270,20 L300,160 L420,160 L470,90 L510,160 L620,160 L680,45 L720,160 L820,160 L860,75 L900,160 L1000,160"
+        fill="none" stroke="url(#peakGrad)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#645F55">
+        <text x="80" y="176" text-anchor="middle">MALAM JABBA · PHENOLICS</text>
+        <text x="260" y="176" text-anchor="middle">MAHODAND · FLAVONOIDS</text>
+        <text x="470" y="176" text-anchor="middle">KALAM · DPPH</text>
+        <text x="680" y="176" text-anchor="middle">USHU · ARTEMISININ</text>
+        <text x="860" y="176" text-anchor="middle">GABRAL · β-GLUCOSIDASE</text>
+      </g>
+    </svg>
+    <div class="divider-caption">Every peak reads two ways — a chromatogram signal, and a place in Swat</div>
+  </div>
+</div>
+
+<section id="techniques">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Techniques &amp; Instrumentation</h2>
+      <span class="section-num">Lab toolkit</span>
+    </div>
+    <div class="tech-groups">
+      <div class="tech-group">
+        <h4>Cell &amp; Tissue Culture</h4>
+        <div class="tech-list">
+          <span class="tech-pill">Callus Induction</span>
+          <span class="tech-pill">Micropropagation</span>
+          <span class="tech-pill">Somatic Embryogenesis</span>
+          <span class="tech-pill">MS Media Optimization</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <h4>Molecular Biology</h4>
+        <div class="tech-list">
+          <span class="tech-pill">Gene Cloning</span>
+          <span class="tech-pill">PCR</span>
+          <span class="tech-pill">Recombinant Expression</span>
+          <span class="tech-pill">SDS-PAGE</span>
+        </div>
+      </div>
+      <div class="tech-group">
+        <h4>Analytical &amp; Nanotech</h4>
+        <div class="tech-list">
+          <span class="tech-pill">HPLC</span>
+          <span class="tech-pill">DPPH Antioxidant Assay</span>
+          <span class="tech-pill">Total Phenolic/Flavonoid Content</span>
+          <span class="tech-pill">AgNP Synthesis &amp; Elicitation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="travel">
+  <div class="wrap">
+    <div class="travel">
+      <div class="eyebrow">Life outside the lab</div>
+      <h2>Wandering Swat, Khyber&nbsp;Pakhtunkhwa</h2>
+      <p>When I'm not at the bench, I'm usually somewhere higher up — walking the meadows above Kalam, following the river toward Mahodand, or just watching the light change over the valley. Swat is the other half of how I think about biology: everything here, from the wild <em>Artemisia</em> on the hillsides to the terraced fields below, is a reminder of why the research matters.</p>
+      <svg class="travel-scene" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated line-art of the Swat valley mountains and river">
+        <polyline points="0,190 120,90 220,150 320,60 430,150 540,80 650,160 760,70 860,140 1000,100 1000,220 0,220"
+          fill="rgba(250,246,238,0.06)" stroke="rgba(250,246,238,0.5)" stroke-width="1.5"/>
+        <polyline points="0,210 150,160 300,195 480,150 650,200 820,165 1000,190"
+          fill="none" stroke="rgba(250,246,238,0.3)" stroke-width="1.2"/>
+        <path d="M0,205 C160,190 220,205 300,198 C400,190 460,205 540,198 C640,190 720,205 800,198 C880,192 940,200 1000,196"
+          fill="none" stroke="#8FAE83" stroke-width="1.4" opacity="0.7"/>
+      </svg>
+      <div class="spots">
+        <span class="spot">Kalam</span>
+        <span class="spot">Mahodand Lake</span>
+        <span class="spot">Malam Jabba</span>
+        <span class="spot">Ushu Forest</span>
+        <span class="spot">Fizagat</span>
+        <span class="spot">Marghazar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Get in Touch</h2>
+      <span class="section-num">Swat, KP · Pakistan</span>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p>Open to collaboration on plant tissue culture, enzyme engineering for bioenergy, or phytochemical/nanoparticle elicitation work — academic or applied. Feel free to reach out.</p>
+      </div>
+      <div class="contact-links">
+        <a class="clink" href="mailto:khanisrar07@gmail.com">
+          <span class="l1">Email</span><span class="l2">khanisrar07@gmail.com</span>
+        </a>
+        <a class="clink" href="https://scholar.google.com/citations?user=MT78OuYAAAAJ&hl=en" target="_blank" rel="noopener">
+          <span class="l1">Google Scholar</span><span class="l2">view citations</span>
+        </a>
+        <a class="clink" href="https://www.linkedin.com/in/khan-israr-61ba1a75/" target="_blank" rel="noopener">
+          <span class="l1">LinkedIn</span><span class="l2">connect</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fname">Israr Khan</div>
+    <div class="fmeta">MPhil Biotechnology · DBGFM, University of Swat · KP, Pakistan</div>
+  </div>
+</footer>
+
+</body>
+</html>
